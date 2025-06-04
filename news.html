@@ -12,6 +12,73 @@
     <link rel="icon" href="favicon-16x16.png" type="image/x-icon">
     <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
     <style>
+        /* Стили для меню */
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            cursor: pointer;
+            background: #1a3e72;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        }
+        
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+        
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background: #1a3e72;
+            z-index: 999;
+            transition: 0.5s;
+            padding-top: 70px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+        }
+        
+        .sidebar.active {
+            left: 0;
+        }
+        
+        .sidebar a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .sidebar a:hover {
+            background: #0d2b57;
+        }
+        
+        .sidebar a.active {
+            background: #0d2b57;
+            font-weight: bold;
+        }
+        
+        .content {
+            margin-left: 70px;
+            transition: 0.5s;
+        }
+        
+        .content.shifted {
+            margin-left: 270px;
+        }
+        
+        /* Остальные стили */
         .news-container {
             max-width: 1200px;
             margin: 40px auto;
@@ -65,40 +132,87 @@
         .show-button:hover {
             background-color: #2a4e82;
         }
+        .header-logo {
+            height: 60px;
+            display: block;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        .site-header {
+            background-color: #1a3e72;
+            padding-bottom: 15px;
+            position: relative;
+        }
+        .footer {
+            background-color: #1a3e72;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        h1 {
+            color: #1a3e72;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .fixed-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #1a3e72;
+            color: white;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 999;
+        }
     </style>
 </head>
-
-<header class="site-header">
-    <div class="nav-container">
-        <img src="logotip.jpg" alt="Логотип АФК Система" class="header-logo">
-        <nav class="main-nav">
-            <a href="about.html">О компании</a>
-            <a href="news.html" class="active">Новости</a>
-            <a href="investors.html">Инвесторам</a>
-            <a href="projects.html">Проекты</a>
-            <a href="contacts.html">Контакты</a>
-        </nav>
-    </div>
-</header>
-
 <body>
-    <main class="news-container">
-        <h1>Корпоративные новости АФК Система</h1>
-        
-        <div class="news-card">
-            <p class="news-date"><i>15.06.2025</i></p>
-            <h2 class="news-title">АФК Система увеличивает инвестиции в цифровые технологии</h2>
-            <p class="news-short">Совет директоров АФК Система одобрил стратегию цифровой трансформации с бюджетом 15 млрд рублей на 2025-2027 годы.</p>
-            <button class="show-button" onclick="toggleText(this)">Подробнее</button>
-            <p class="news-full-text">
-                АФК Система планирует существенно увеличить инвестиции в цифровизацию своих активов. Основные направления включают внедрение 
-                искусственного интеллекта в управление активами, развитие платформенных решений для клиентов и создание единой цифровой 
-                экосистемы для всех компаний холдинга. Особое внимание будет уделено телекоммуникационному сегменту и цифровым сервисам. 
-                "Цифровая трансформация - ключевой элемент нашей стратегии роста стоимости бизнеса", - отметил президент АФК Система Владимир Чирахов.
-            </p>
-        </div>
+    <!-- Иконка меню -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <!-- Боковое меню -->
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">О компании</a>
+        <a href="news.html" class="active">Новости</a>
+        <a href="course.html">Курс валют</a>
+        <a href="video.html">Видео</a>
+        <a href="contacts.html">Контакты</a>
+    </div>
+    
+    <div class="content" id="content">
+        <header class="site-header">
+            <img src="logotip.jpg" alt="Логотип АФК Система" class="header-logo">
+        </header>
 
-        <div class="news-card">
+        <main class="news-container">
+            <h1>Корпоративные новости АФК Система</h1>
+            
+            <div class="news-card">
+                <p class="news-date"><i>15.06.2025</i></p>
+                <h2 class="news-title">АФК Система увеличивает инвестиции в цифровые технологии</h2>
+                <p class="news-short">Совет директоров АФК Система одобрил стратегию цифровой трансформации с бюджетом 15 млрд рублей на 2025-2027 годы.</p>
+                <button class="show-button" onclick="toggleText(this)">Подробнее</button>
+                <p class="news-full-text">
+                    АФК Система планирует существенно увеличить инвестиции в цифровизацию своих активов. Основные направления включают внедрение 
+                    искусственного интеллекта в управление активами, развитие платформенных решений для клиентов и создание единой цифровой 
+                    экосистемы для всех компаний холдинга. Особое внимание будет уделено телекоммуникационному сегменту и цифровым сервисам. 
+                    "Цифровая трансформация - ключевой элемент нашей стратегии роста стоимости бизнеса", - отметил президент АФК Система Владимир Чирахов.
+                </p>
+            </div>
+            <div class="news-card">
             <p class="news-date"><i>10.06.2025</i></p>
             <h2 class="news-title">МТС (входит в АФК Система) запускает сеть 6G в Москве</h2>
             <p class="news-short">Пилотный проект по развертыванию сетей шестого поколения стартовал в столице при поддержке правительства Москвы.</p>
@@ -223,17 +337,36 @@
                 отчисления на 25%. Эксперты особо отметили социальные и экологические инициативы компании.
             </p>
         </div>
-    </main>
+           
 
-    <footer class="footer">
-    <div class="footer-content">
-        &copy; Бережная Маргарита, ФБИ-33, 2 курс, 2025
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                &copy; Бережная Маргарита, ФБИ-33, 2 курс, 2025
+            </div>
+        </footer>
+
+        <a href="#top" class="fixed-button">↑</a>
     </div>
-    </footer>
-
-    <a href="#top" class="fixed-button">↑</a>
 
     <script>
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('content').classList.toggle('shifted');
+            
+            const spans = document.querySelectorAll('.menu-toggle span');
+            if (document.getElementById('sidebar').classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        }
+        
         function toggleText(button) {
             const text = button.nextElementSibling;
             if (text.style.display === "block") {

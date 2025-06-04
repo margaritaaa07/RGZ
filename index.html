@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Бережная Маргарита Валерьевна. О компании - АФК "Система"</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+<header class="site-header">
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+<div class="side-menu" id="sideMenu">
+    <a href="index.html">Главная</a>
+    <a href="about.html" class="active">О компании</a>
+    <a href="news.html">Новости</a>
+    <a href="investors.html">Инвесторам</a>
+    <a href="contacts.html">Контакты</a>
+    <a href="sustainability.html">Устойчивое развитие</a>
+</header>
+
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+.main-content {
+    max-width: 800px;
+    padding: 40px;
+    text-align: center;
+}
+
+.hamburger {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1100;
+    background: #0033A0;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #0033A0;
+    color: white;
+    padding-top: 60px;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-menu.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.side-menu a {
+    padding: 15px 25px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.side-menu a.active {
+    background-color: #002070;
+}
+</style>
+
+<div class="container">
+    <a id="top"></a>
+
+    <h1><u>О компании АФК "Система"</u></h1>
+
+    <div class="highlight">
+        <p><strong>АФК "Система"</strong> — <i>крупнейшая в России и СНГ публичная диверсифицированная холдинговая компания</i>, 
+            объединяющая высокотехнологичные активы в различных секторах экономики.</p>
+    </div>
+
+    <h2><i>Стратегия и направления деятельности</i></h2>
+    <p>Компания концентрируется на следующих стратегических направлениях:</p>
+    <ul>
+        <li><p><strong>Телекоммуникации и технологии</strong> - МТС, МГТС</p></li>
+        <li><p><strong>Микроэлектроника</strong> - "Микрон", "Элемер"</p></li>
+        <li><p><strong>Медицина и биотехнологии</strong> - Группа "Медси", "Биннофарм"</p></li>
+        <li><p><strong>Лесопромышленный комплекс</strong> - "Сегежа Групп"</p></li>
+        <li><p><strong>Ритейл и потребительские товары</strong> - "Детский мир", "О'КЕЙ"</p></li>
+    </ul>
+    
+    <img src="shtab.jpg" alt="Штаб-квартира АФК Система" class="center-img" width="800">
+    
+    <div class="stats-grid">
+        <div class="stat-item">
+            <div>Год основания</div>
+            <div class="stat-value">1993</div>
+        </div>
+        <div class="stat-item">
+            <div>Капитализация</div>
+            <div class="stat-value">>300 млрд ₽</div>
+        </div>
+        <div class="stat-item">
+            <div>Сотрудников</div>
+            <div class="stat-value">290 000+</div>
+        </div>
+    </div>
+    
+    <h2>История компании</h2>
+    <p>АФК "Система" была основана в <strong>1993 году</strong>. Ключевые вехи развития:</p>
+    <p><strong>1990-е</strong> - формирование холдинговой структуры, первые инвестиции в телекоммуникации</p>
+    <p><strong>2000-е</strong> - выход на IPO, расширение портфеля активов</p>
+    <p><strong>2010-е</strong> - развитие высокотехнологичных направлений, цифровая трансформация</p>
+    <p><strong>2020-е</strong> - фокус на ESG-трансформацию, развитие микроэлектроники и биотехнологий</p>
+    
+    <img src="komanda.jpg" alt="Команда АФК Система" class="center-img" width="600">
+    
+    <h2>Корпоративные ценности</h2>
+    <ol>
+        <li><p><u>Инновации</u> - развитие технологий будущего</p></li>
+        <li><p><u>Ответственность</u> - перед акционерами, сотрудниками и обществом</p></li>
+        <li><p><u>Устойчивое развитие</u> - баланс экономических, экологических и социальных факторов</p></li>
+    </ol>
+    
+    <h2>Ключевые показатели</h2>
+    <ul>
+        <li><p>Активы под управлением - <b>1,5 трлн рублей</b></p></li>
+        <li><p>География присутствия - <b>11 стран</b></p></li>
+        <li><p>Более <b>50 дочерних компаний</b></p></li>
+        <li><p>Лидер в рейтингах корпоративного управления</p></li>
+    </ul>
+    
+    <img src="proizvodstvo.jpg" alt="Производство компании" class="center-img">
+    
+    <h2>Достижения и награды</h2>
+    <ul>
+        <li><p><strong>2023</strong> - Лучшая холдинговая компания по версии Forbes</p></li>
+        <li><p><strong>2022</strong> - Лидер ESG-рейтингов</p></li>
+        <li><p><strong>2021</strong> - Премия "Компания года" в номинации "Корпоративное управление"</p></li>
+    </ul>
+    
+    <p>Сегодня <strong>АФК "Система"</strong> - это <i>устойчивый многопрофильный холдинг</i>, сочетающий в себе <i>передовые технологии</i> 
+        и <i>социальную ответственность</i>, с активами, представленными в <b>различных секторах экономики</b>.</p>
+    
+    <p>Подробнее на официальном сайте: <a href="https://www.sistema.ru" target="_blank" style="color: #0033A0; font-weight: 600;">www.sistema.ru</a></p>
+</div>
+
+<a href="#top" class="fixed-button">↑</a>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById('sideMenu');
+    menu.classList.toggle('show');
+}
+</script>
+
+</body>
+</html>
